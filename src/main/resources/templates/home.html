@@ -1,7 +1,7 @@
 <html>
 <body>
 <pre>
-    #*
+ <!--   #*
     你看不到我~~~~
     *#
     $!{value1}
@@ -30,8 +30,7 @@
     Title: $!{title}
 
 
-    Parse: #parse("header.html")
-    Include: #include("header.html")
+
 
     #macro (render_color, $index, $color)
         Color Render Macro $index, $color
@@ -46,10 +45,12 @@
     $!hello
     $helloworld1
     #set($helloworld2 = '$!{hello} world')
-    $helloworld2
+    $helloworld2-->
 
-
-
+$!{userId}
+    User:  $!{user.name}
+    $!{user.description}
+    $!{user.getDescription()}
 
 
 </pre>

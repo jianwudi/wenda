@@ -21,15 +21,15 @@ import java.util.*;
  */
 @Controller
 public class IndexController {
-    @RequestMapping(path = {"/index/{userId}/{profile}"}, method = {RequestMethod.GET})
-    public String index(@PathVariable("userId") int userId,
+    @RequestMapping(path = {"/home1/{userId}/{profile}"}, method = {RequestMethod.GET})
+    public String index(@PathVariable("userId") int userId1,
                         @PathVariable("profile") String profile,
                         @RequestParam(value = "type", defaultValue = "1") int type,
                         @RequestParam(value = "key",required = true) String key)
     {
  //       return String.format("type:%d",type);
 
-        return "home";
+       return "home";
     }
     @RequestMapping(path = {"/vm"}, method = {RequestMethod.GET})
     public String template(Model model) {
