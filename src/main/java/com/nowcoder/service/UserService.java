@@ -25,9 +25,6 @@ public class UserService {
     @Autowired
     private LoginTicketDAO loginTicketDAO;
 
-    public User getUser(int id) {
-        return userDAO.selectById(id);
-    }
     public Map<String,Object> register(String userName,String password)
     {
         Map<String,Object> res = new HashMap<String, Object>();
@@ -98,5 +95,12 @@ public class UserService {
         loginTicketDAO.addTicket(ticket);
         return ticket.getTicket();
     }
-}
 
+    public User getUser(int id) {
+        return userDAO.selectById(id);
+    }
+
+    public void logout(String ticket) {
+        loginTicketDAO.updateStatus(ticket, 1);
+    }
+}

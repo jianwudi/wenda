@@ -17,21 +17,20 @@ import java.util.Date;
 @Component
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
-    StringBuilder sb = new StringBuilder();
+
     @Before("execution(* com.nowcoder.controller.*Controller.*(..))")
-    public void before(JoinPoint joinPoint)
-    {
-        for(Object obj:joinPoint.getArgs())
-        {
-            sb.append("arg:" + obj.toString() +"|");
+    public void beforeMethod(JoinPoint joinPoint) {
+        StringBuilder sb = new StringBuilder();
+        for (Object arg : joinPoint.getArgs()) {
+            if (arg != null) {
+                sb.append("arg:" + arg.toString() + "|");
+            }
         }
-        System.out.print(sb);
-        logger.info("before method");
-    }
-    @After("execution(* com.nowcoder.controller.*Controller.*(..))")
-    public void after()
-    {
-        logger.info("after method");
+        logger.info("before method:" + sb.toString());
     }
 
+    @After("execution(* com.nowcoder.controller.IndexController.*(..))")
+    public void afterMethod() {
+        logger.info("after method" + new Date());
+    }
 }

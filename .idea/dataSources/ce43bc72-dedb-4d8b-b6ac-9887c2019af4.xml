@@ -807,101 +807,148 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="204" parent="8" name="question">
+    <table id="204" parent="8" name="login_ticket">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="205" parent="8" name="user">
+    <table id="205" parent="8" name="question">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="206" parent="204" name="id">
+    <table id="206" parent="8" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="207" parent="204" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="207" parent="204" name="title">
+    <column id="208" parent="204" name="user_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="208" parent="204" name="content">
-      <Position>3</Position>
-      <DataType>text|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="209" parent="204" name="user_id">
-      <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="210" parent="204" name="created_date">
-      <Position>5</Position>
+    <column id="209" parent="204" name="ticket">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="210" parent="204" name="expired">
+      <Position>4</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="211" parent="204" name="comment_count">
-      <Position>6</Position>
+    <column id="211" parent="204" name="status">
+      <Position>5</Position>
       <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="212" parent="204" name="date_index">
-      <ColNames>created_date</ColNames>
+    <index id="212" parent="204" name="ticket_UNIQUE">
+      <ColNames>ticket</ColNames>
+      <Unique>1</Unique>
     </index>
     <key id="213" parent="204" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="214" parent="205" name="id">
+    <key id="214" parent="204" name="ticket_UNIQUE">
+      <ColNames>ticket</ColNames>
+      <UnderlyingIndexName>ticket_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="215" parent="205" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="216" parent="205" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="217" parent="205" name="content">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="218" parent="205" name="user_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="219" parent="205" name="created_date">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="220" parent="205" name="comment_count">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="221" parent="205" name="date_index">
+      <ColNames>created_date</ColNames>
+    </index>
+    <key id="222" parent="205" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="223" parent="206" name="id">
       <Position>1</Position>
       <DataType>int(11) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="205" name="name">
+    <column id="224" parent="206" name="name">
       <Position>2</Position>
       <DataType>varchar(64)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="205" name="password">
+    <column id="225" parent="206" name="password">
       <Position>3</Position>
       <DataType>varchar(128)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="205" name="salt">
+    <column id="226" parent="206" name="salt">
       <Position>4</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="205" name="head_url">
+    <column id="227" parent="206" name="head_url">
       <Position>5</Position>
       <DataType>varchar(256)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="219" parent="205" name="name">
+    <index id="228" parent="206" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="220" parent="205" name="PRIMARY">
+    <key id="229" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="221" parent="205" name="name">
+    <key id="230" parent="206" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
