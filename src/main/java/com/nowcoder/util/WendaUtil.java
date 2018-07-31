@@ -13,6 +13,8 @@ import java.util.Map;
  */
 public class WendaUtil {
     private static final Logger logger = LoggerFactory.getLogger(WendaUtil.class);
+    public static int ANONYMOUS_USERID = 3;
+
     public static String getJSON(int code,String msg)
     {
         JSONObject json = new JSONObject();
@@ -20,7 +22,12 @@ public class WendaUtil {
         json.put("msg",msg);
         return json.toJSONString();
     }
-
+    public static String getJSON(int code)
+    {
+        JSONObject json = new JSONObject();
+        json.put("code",code);
+        return json.toJSONString();
+    }
     public static String MD5(String key) {
         char hexDigits[] = {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
